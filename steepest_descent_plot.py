@@ -34,6 +34,11 @@ def steepest_descent(Q, b, n, eps, *, seed=None):
 
 
 def main():
+    plt.rcParams.update({
+        "text.usetex": True,
+        "font.family": "serif",
+    })
+
     n = 2
     eps = 1e-3
     seed = 5#np.random.randint(1,10000)
@@ -45,10 +50,9 @@ def main():
     xs = steepest_descent(Q, b, n, eps, seed=seed)
     x_star = np.matmul(np.linalg.inv(Q), b)
 
-    n = [500 for _ in range(4)]
+    n = [500 for _ in range(5)]
     n.append(1000)
-    n.append(1400)
-    n.append(1500)
+    n.append(1000)
     lims = [[[-0.4,1],[0,1]],
             [[0,0.3],[0,1]],
             [[0.16,0.18],[0.447,0.452]],
@@ -58,24 +62,41 @@ def main():
             [[0.1632,0.1637],[0.4496,0.4499]],
             ]
     # values are fine tuned for problem generated when seed=5
-    for i, x in enumerate(xs):
-        xx = np.linspace(*lims[i][0], n[i])
-        yy = np.linspace(*lims[i][1], n[i])
+    ax = plt.gca()
+    axins = ax.inset_axes([0.8,0.8,0.2,0.2])
+    for idx, x in enumerate(xs):
+        xx = np.linspace(*lims[idx][0], n[idx])
+        yy = np.linspace(*lims[idx][1], n[idx])
         xx, yy = np.meshgrid(xx, yy)
         fk = 0.5 * np.matmul(np.matmul(x.T,Q), x) - np.matmul(b.T, x)
         fk = fk.item()
         print(fk)
-        F = np.zeros((n[i], n[i]))
+        F = np.zeros((n[idx], n[idx]))
         for i in range(xx.shape[0]):
             for j in range(xx.shape[1]):
                 x1 = xx[i, j]
                 x2 = yy[i, j]
                 F[i, j] = 0.5 * x1 * x1 * Q[0, 0] + x1 * x2 * Q[0, 1] + 0.5 * x2 * x2 * Q[1, 1] - b[0, 0] * x1 - b[1, 0] * x2 - fk
-        plt.contour(xx,yy,F,[0])
+        if idx == 0:
+            c = plt.contour(xx,yy,F,[0])
+        else:
+            plt.contour(xx,yy,F,[0])
+        axins.contour(xx,yy,F,[0])
     xs = np.asarray(xs)
-    plt.plot(xs[:,0,0], xs[:,1,0], 'C1--', marker='.')
-    plt.gca().set_aspect('equal')
-    plt.gca().set_xlim(-0.4,1)
+    plt.plot(xs[:,0,0], xs[:,1,0], 'C1--')
+    plt.plot(xs[:,0,0], xs[:,1,0], 'C2.', label='$$x_k$$')
+    axins.plot(xs[:,0,0], xs[:,1,0], 'C1--')
+    axins.plot(xs[:,0,0], xs[:,1,0], 'C2.',markersize=2)
+    ax.set_aspect('equal')
+    ax.set_xlim(-0.4,1)
+    axins.set_xlim(0.13,0.2)
+    axins.set_ylim(0.42,0.48)
+    axins.set_aspect('equal')
+    ax.indicate_inset_zoom(axins)
+    plt.suptitle("Steepest descent for 2 dimensional case\n(in purple we have the level sets)")
+    plt.xlabel('$$x_1$$')
+    plt.ylabel('$$x_2$$')
+    plt.legend()
     plt.show()
 
 
