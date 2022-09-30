@@ -36,7 +36,7 @@ def steepest_descent(Q, b, n, eps, *, seed=None):
 def main():
     n = 2
     eps = 1e-3
-    seed = np.random.randint(1,10000)
+    seed = 5#np.random.randint(1,10000)
     print("Got args: n = {}, eps = {}, seed = {}".format(n, eps, seed))
 
     problem = generate_problem(n, seed=seed)
