@@ -1,0 +1,116 @@
+% Created 2022-09-19 Mon 17:05
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Mridul Gupta}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Mridul Gupta},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.3)}, 
+ pdflang={English}}
+\begin{document}
+\pagenumbering{gobble}
+\section{First pass}
+
+At iteration \(k\) (crosscheck this),
+\begin{align*}
+    &P:\min_{\alpha\in\mathbb{R}}\;\phi(\alpha)\\
+    &\mbox{where }\phi(\alpha)=x_k-\alpha\nabla f(x)\lvert_{x=x_k}\\
+    &\\
+    &\mbox{and then}\\
+    &\\
+    &\hat{\alpha_k}=\underset{\alpha\in\mathbb{R}}{\operatorname{argmin}}\;\phi(\alpha)\\
+    &x_{k+1}=x_k-\hat{\alpha_k}\nabla f(x)\lvert_{x=x_k}
+\end{align*}
+\vspace{1cm}
+
+How to do line search?
+
+\begin{enumerate}
+    \item Start with a bracket.
+    \item How? Go forward and backward.
+    \item Once we have \([a,b]\), we can do golden section or fibonacci section method.
+    \item We have \(I_1\) from \([a,b]\). We have to pick an \(\varepsilon\) and then calculate \(n\) from it.
+    \item From \(n\), calculate \(F_n\). Write function to calculate \(p_j\) and \(q_j\). Write function to select left interval or right interval.
+    \item Details in notes.
+\end{enumerate}
+
+\section{Second pass}
+
+Exact steps of forward and backward:
+\begin{enumerate}
+    \item Start with \(\alpha_0\) and an \(h\) (baby steps, so \(h\) should be
+        small value).
+    \item Go to \(\alpha_0+h\), see if \(\phi(\alpha_0)>\phi(\alpha_0+h)\).
+    \item If yes, go to \(2h\), \(4h\), \(8h\), and keep checking same condition.
+    \item If no, then revert backwards using a different GP (or for simplicity
+        use the same GP.)
+    \item As long as the function is decreasing you keep going forward.
+    \item Then as long as the function is decreasing you keep going forward.
+    \item You end up with a small bracket where there should be a minima.
+\end{enumerate}
+
+Exact steps of fibonacci method:
+\begin{enumerate}
+    \item \(I_n=\dfrac{I_1}{F_n}\)
+    \item \(I_n < \varepsilon\)
+    \item \(I_k = I_{k+1}+I_{k+2} = (F_{n-k}+F_{n-k-1})I_n = F_{n-k+1}I_n\)
+    \item \(I_{k+2} = I_k - I_{k+1}\)
+    \item Either \(x_p^k=x_u^k-I_{k+1}\) or \(x_q^k=x_l^k+I_{k+1}\)
+    \item Last mei \(x_p^k = x_q^k\), then use a \(\delta\)-disturbance.
+    \item For numerical reasons this can happen before, to \(\delta\) wala ek
+        iteration chalaya jayega.
+    \item Choose \(\dfrac{\delta}{2}<\dfrac{I_1}{2F_n}\)
+    \item See \href{https://en.wikipedia.org/wiki/File:GoldenSectionSearch.png}{image}
+        for when to choose which interval.
+    \item Due to numerical issues, at some point \(x_p^k\) might be \(>x_q^k\).
+        In such case, choose \(x^*\) to be the mid point of \(x_l^k\) and \(x^k_u\).
+\end{enumerate}
+
+\section{The third idea}
+Since we are doing quadratic optimization, we can find a closed form solution for
+\(\alpha\):
+\begin{align*}
+    &\phi(\alpha)= x^k-\alpha\nabla f(x^k)\\
+    &\mbox{and }f(x)=\dfrac{1}{2}x^TQx-b^Tx\\
+    &\hat{\alpha_k}\mbox{ is the minimizer of }\phi(\alpha)\\
+    &\mbox{setting }\phi'(\alpha)=0\\
+    &\nabla f(x)=Qx-b\\
+    &\\
+    &\phi'(\alpha)=\nabla f\left(x^k-\alpha\nabla f(x^k)\right)^T\nabla f(x^k)\\
+    &\\
+    &\mbox{let $g=\nabla f(x^k)$ and using $x$ instead of $x^k$ in the following for
+    simpler notation}\\
+    &\Rightarrow \left(Qx-\alpha Qg-b\right)^T(Qx-b)=0\\
+    &\Rightarrow \left(x^TQ^T-\alpha g^TQ^T -b^T\right)(Qx-b)=0\\
+    &\Rightarrow x^TQ^TQx-x^TQ^Tb-\alpha g^TQ^TQx + \alpha g^TQ^Tb - b^TQx +\lVert b\rVert^2=0\\
+    &\\
+    &\mbox{Note: $Q$ is symmetric pd and $x^TQ^Tb=b^TQx$ (transpose of as scalar)}\\
+    &\Rightarrow x^TQ^2x-2x^TQb-\alpha g^TQ^2x+\alpha g^TQb+\lVert b\rVert^2=0\\
+    &\Rightarrow \alpha=\dfrac{x^TQ^2x-2x^TQb+\lVert b\rVert^2}{g^TQ^2x-g^TQb}\\
+    &\\
+    &\mbox{given that the denominator is not zero (it is a scalar)}\\
+    &\mbox{The denominator is zero only when either the gradient is zero or $Qx=b$}\\
+    &\mbox{both of which only happen at the optimum point}\\
+    &\mbox{(because }g^TQ(Qx-b)=0\mbox{ only when either $g=0$ or $Qx-b=0$)}\\
+    &\\
+    &\mbox{Note: $x$ here is not a variable, but actually $x^k$ (a fixed value)}
+\end{align*}
+
+\end{document}
