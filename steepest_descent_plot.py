@@ -97,6 +97,7 @@ def main():
     plt.xlabel('$$x_1$$')
     plt.ylabel('$$x_2$$')
     plt.legend()
+    #plt.savefig('contour_plot_1.png',dpi=300)
     plt.show()
 
 
