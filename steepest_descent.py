@@ -32,7 +32,7 @@ def steepest_descent(Q, b, n, eps, *, seed=None):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-n",default=2,type=int)
+    parser.add_argument("-n",default=100,type=int)
     parser.add_argument("-eps",default=1e-3,type=float)
     parser.add_argument("-seed",default=None,type=int)
     args = parser.parse_args()
@@ -60,4 +60,3 @@ def main():
 
 if __name__=="__main__":
     main()
-    # TODO: Do the contour plot showing 90 degree zigzagging for 2D case

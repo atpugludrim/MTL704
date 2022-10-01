@@ -1,1 +1,1 @@
-1. Draw performance graphs or something, iteration vs error maybe
+1. Remove the usetex rcParams before submitting.

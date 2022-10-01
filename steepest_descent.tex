@@ -5,6 +5,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{grffile}
+\usepackage[a4paper,margin=1in]{geometry}
 \usepackage{longtable}
 \usepackage{wrapfig}
 \usepackage{rotating}
@@ -25,7 +26,6 @@
  pdfcreator={Emacs 27.1 (Org mode 9.3)}, 
  pdflang={English}}
 \begin{document}
-\pagenumbering{gobble}
 \section{First pass}
 
 At iteration \(k\) (crosscheck this),
@@ -113,6 +113,67 @@ Since we are doing quadratic optimization, we can find a closed form solution fo
     &\mbox{Note: $x$ here is not a variable, but actually $x^k$ (a fixed value)}
 \end{align*}
 
-\section{Steepest Descent}
+\section{Steepest Descent for Quadratic Case}
+I've written a code in \verb:python: to generate a convex optimization problem at
+random and then solve it using \textit{steepest descent} algorithm. It can be run
+using the following command:\par
+\begin{verbatim}
+$ python3 steepest_descent.py -n 100 -eps 1e-3 -seed 150
+\end{verbatim}
+Parameters:
+\begin{itemize}
+    \item \verb:n:: the $n$ in $\mathbb{R}^n\ni x$. This is optional, default
+        value is 100. Type: integer.
+    \item \verb:eps:: the $\varepsilon$ used for stopping criteria. Note: the stopping
+        criteria is \hbox{$\lVert\nabla f\rVert<\varepsilon$.} This is also optional,
+        if not provided the default value is taken to be $10^{-3}$. Type: float.
+    \item \verb:seed:: all random number generators are \textit{pseudo-random}
+        sequence generators. Given a \verb:seed: value, the random sequence is
+        determined. This is good for repeatability. This is optional, if not set
+        a new problem will be generated in each run. Type: integer.
+\end{itemize}
+I also wrote another code which is specialized for $n=2$ and visualized the results
+in figure~\ref{fig:contour_sd}. The code is for a particular problem (value of
+$Q$ and $b$) only, since I had to fine tune the level set plots. Plotting level sets
+at a particular value of the function in python is not convenient. Run the code
+as (to check repeatability, and also you can zoom in on the tiny parts of the figure
+using the magnifying glass tool):
+\begin{verbatim}
+$ python3 steepest_descent_plot.py
+\end{verbatim}
+\begin{figure}[!htbp]
+    \includegraphics[width=\textwidth]{./contour_plot_1.png}
+    \caption{Movement of $x^k$ towards the optimum value\label{fig:contour_sd}}
+\end{figure}
+I then ran this code for $n\in\{2,\dotsc,100\}$ and plotted the number of iterations
+it takes for the method to converge (figure~\ref{fig:niter}). The number fluctuates
+a lot (because each problem is different), but it sometimes takes steepest descent
+more than 6000 steps to converge where Newton's method would have taken just 2.\par
+I also plot the distribution of the number of iterations it takes steepest descent
+to converge for $n=30$ from 500 runs of SD.\par
+I then run the steepest descent algorithm for different $n$ but keep the condition
+number fixed (and $=1000$ which is very large), we see that ill conditioning results
+in increase of iterations (fig~\ref{fig:condition}).\par
+Naturally, I also ran the algorithm for varying values of $n$ when the condition
+number is good. See figure~\ref{fig:good}. The number of iterations are less by
+a factor of 1000.
+\begin{figure}[!htbp]
+    \includegraphics[width=\textwidth]{./niter.png}
+    \caption{Number of iterations for convergence with varying values of $n$\label{fig:niter}}
+\end{figure}
+\begin{figure}[!htbp]
+    \includegraphics[width=\textwidth]{./niter_fix_n_30.png}
+    \caption{Number of iteration distribution for $n=30$\label{fig:niter_30}}
+\end{figure}
+\begin{figure}[!htbp]
+    \includegraphics[width=\textwidth]{./niter_fix_r.png}
+    \caption{Number of iterations for convergence with varying values of $n$
+    with a fixed value of condition number $r=1000$\label{fig:condition}}
+\end{figure}
+\begin{figure}[!htbp]
+    \includegraphics[width=\textwidth]{./niter_fix_r_good.png}
+    \caption{Number of iterations for convergence with varying values of $n$
+    with a fixed value of condition number $r=1.2$\label{fig:good}}
+\end{figure}
 
 \end{document}
