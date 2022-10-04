@@ -30,6 +30,33 @@ def steepest_descent(Q, b, n, eps, *, seed=None):
     return x, niter
 
 
+def steepest_descent_2(Q, b, n, eps, *, seed=None):
+    MM = np.matmul # shorthand
+    def func(x):
+        return 0.5 * MM(x.T, MM(Q, x)) - MM(b.T, x)
+    if seed is None:
+        seed = np.random.randint(1, 10000)
+    rs = np.random.RandomState(seed=seed)
+    xs = [] # the history
+    fs = [] # function history
+    x = rs.rand(n).reshape(-1, 1)
+    xs.append(x)
+    fs.append(func(x))
+    print("Q:\n{}\nb:\n{}\nstarting x:\n{}\n".format(Q, b, x))
+    # x in R^n, with each component iid distributed in (0, 1)
+    g = grad(Q, b, x)
+    niter = 0
+    while norm(g) >= eps:
+        niter += 1
+        g = grad(Q, b, x)
+        alpha = MM(MM(MM(x.T, Q), Q), x) - 2 * MM(MM(x.T, Q), b) + MM(b.T, b)
+        alpha /= MM(MM(MM(g.T, Q), Q), x) - MM(MM(g.T, Q), b)
+        x = x - alpha * g
+        xs.append(x)
+        fs.append(func(x))
+    return xs, fs, niter
+
+
 def plot1():
     eps = 1e-3
     ns = range(2, 101)
@@ -101,11 +128,26 @@ def plot4():
     plt.show()
 
 
+def plot5(n):
+    eps = 1e-3
+    problem = generate_problem_fix_r(n,good=False)
+    Q, b = problem['Q'], problem['b']
+    xs, fs, niter = steepest_descent_2(Q, b, n, eps)
+    plt.figure(figsize=(10,10))
+    plt.plot(range(niter+1),np.asarray(fs).reshape(-1),'C1',label='Number of iterations taken to converge')
+    plt.xlabel('k (#iter)')
+    plt.grid(axis='y')
+    plt.ylabel('f(x_k)')
+    plt.savefig('function_value.png')
+    plt.show()
+
+
 def main():
     plot1()
     plot2()
     plot3()
     plot4()
+    plot5(n=50)
 
 
 if __name__=="__main__":

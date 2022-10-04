@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.1.24)  1 OCT 2022 16:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.1.24)  4 OCT 2022 11:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -405,23 +405,28 @@ File: ./niter_fix_r_good.png Graphic file (type png)
 <use ./niter_fix_r_good.png>
 Package pdftex.def Info: ./niter_fix_r_good.png  used on input line 174.
 (pdftex.def)             Requested size: 452.9679pt x 452.96558pt.
- [4 <./niter.png>] [5 <./niter_fix_n_30.png>] [6 <./niter_fix_r.png>] [7 <./niter_fix_r_good.png>] (./steepest_descent.aux)
+<./function_value.png, id=84, 722.7pt x 722.7pt>
+File: ./function_value.png Graphic file (type png)
+<use ./function_value.png>
+Package pdftex.def Info: ./function_value.png  used on input line 184.
+(pdftex.def)             Requested size: 452.9679pt x 452.96558pt.
+ [4 <./niter.png>] [5 <./niter_fix_n_30.png>] [6 <./niter_fix_r.png>] [7 <./niter_fix_r_good.png>] [8 <./function_value.png>] (./steepest_descent.aux)
 Package rerunfilecheck Info: File `steepest_descent.out' has not changed.
 (rerunfilecheck)             Checksum: F4093F11FFC521F90F62D8C6201B1560;546.
  ) 
 Here is how much of TeX's memory you used:
- 10338 strings out of 480247
- 160587 string characters out of 5895711
- 456763 words of memory out of 5000000
- 28083 multiletter control sequences out of 15000+600000
+ 10348 strings out of 480247
+ 160778 string characters out of 5895711
+ 456847 words of memory out of 5000000
+ 28090 multiletter control sequences out of 15000+600000
  477669 words of font info for 53 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,11n,63p,281b,407s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/mridul/.TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/home/mridul/.TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on steepest_descent.pdf (7 pages, 612556 bytes).
+Output written on steepest_descent.pdf (8 pages, 636293 bytes).
 PDF statistics:
- 180 PDF objects out of 1000 (max. 8388607)
- 132 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
- 58 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 188 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

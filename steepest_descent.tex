@@ -156,7 +156,7 @@ number fixed (and $=1000$ which is very large), we see that ill conditioning res
 in increase of iterations (fig~\ref{fig:condition}).\par
 Naturally, I also ran the algorithm for varying values of $n$ when the condition
 number is good. See figure~\ref{fig:good}. The number of iterations are less by
-a factor of 1000.
+a factor of 1000.\par
 \begin{figure}[!htbp]
     \includegraphics[width=\textwidth]{./niter.png}
     \caption{Number of iterations for convergence with varying values of $n$\label{fig:niter}}
@@ -174,6 +174,15 @@ a factor of 1000.
     \includegraphics[width=\textwidth]{./niter_fix_r_good.png}
     \caption{Number of iterations for convergence with varying values of $n$
     with a fixed value of condition number $r=1.2$\label{fig:good}}
+\end{figure}
+Figure~\ref{fig:fv} shows how the function value evolves with each iteration.
+We can see that the function value drops quickly in the first few iterations but
+the progress quickly gets stagnant. The function value almost stays around the same
+region for thousands of iterations before convergence (and note, the converged
+value is still not exact.)
+\begin{figure}[!htbp]
+    \includegraphics[width=\textwidth]{./function_value.png}
+    \caption{Evolution of the function value with each successive iteration\label{fig:fv}}
 \end{figure}
 
 \end{document}
