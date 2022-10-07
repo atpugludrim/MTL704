@@ -115,7 +115,7 @@
 % \end{align*}
 
 \section{Steepest Descent for Quadratic Case}
-I've written a code in \verb:python: to generate a convex optimization problem at
+I've written a code in \verb:python: to generate a quadratic optimization problem at
 random and then solve it using \textit{steepest descent} algorithm. It can be run
 using the following command:\par
 \begin{verbatim}
@@ -134,7 +134,7 @@ Parameters:
         a new problem will be generated in each run. Type: integer.
 \end{itemize}
 I also wrote another code which is specialized for $n=2$ and visualized the results
-in figure~\ref{fig:contour_sd}. The code is for a particular problem (value of
+in fig.~\ref{fig:contour_sd}. The code is for a particular problem (value of
 $Q$ and $b$) only, since I had to fine tune the level set plots. Plotting level sets
 at a particular value of the function in python is not convenient. Run the code
 as (to check repeatability, and also you can zoom in on the tiny parts of the figure
@@ -147,16 +147,16 @@ $ python3 steepest_descent_plot.py
     \caption{Movement of $x^k$ towards the optimum value\label{fig:contour_sd}}
 \end{figure}
 I then ran this code for $n\in\{2,\dotsc,100\}$ and plotted the number of iterations
-it takes for the method to converge (figure~\ref{fig:niter}). The number fluctuates
+it takes for the method to converge (fig.~\ref{fig:niter}). The number fluctuates
 a lot (because each problem is different), but it sometimes takes steepest descent
 more than 6000 steps to converge where Newton's method would have taken just 2.\par
 I also plot the distribution of the number of iterations it takes steepest descent
-to converge for $n=30$ from 500 runs of SD.\par
+to converge for $n=30$ from 500 runs of SD (fig.~\ref{fig:niter_30}).\par
 I then run the steepest descent algorithm for different $n$ but keep the condition
 number fixed (and $=1000$ which is very large), we see that ill conditioning results
 in increase of iterations (fig~\ref{fig:condition}).\par
 Naturally, I also ran the algorithm for varying values of $n$ when the condition
-number is good. See figure~\ref{fig:good}. The number of iterations are less by
+number is good. See fig.~\ref{fig:good}. The number of iterations are less by
 a factor of 1000.\par
 \begin{figure}[!htbp]
     \includegraphics[width=\textwidth]{./niter.png}
@@ -194,7 +194,8 @@ outsourced gradient calculation to Harvard's \verb|autograd| library%
 a few of the benchmark functions from the provided list, these functions reside
 in the \verb|functions.py| file. The code can be run as:
 \begin{verbatim}
-$ python3 general_sd.py -list -function <function-name> -n <dim> -eps 1e-3 -seed 0 -alpha_hat 1e-3
+$ python3 general_sd.py -list -function <function-name> -n <dim> -eps 1e-3 -seed 0
+  -alpha_hat 1e-3
 \end{verbatim}
 Parameters:
 \begin{itemize}
