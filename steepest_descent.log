@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.1.24)  4 OCT 2022 11:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.1.24)  7 OCT 2022 10:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -283,31 +283,59 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
 \Hy@SectionHShift=\skip59
+) (/home/mridul/.TinyTeX/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
+ (/home/mridul/.TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2022/02/20 v3.6 Customizing captions (AR)
+ (/home/mridul/.TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2022/01/07 v2.3 caption3 kernel (AR)
+\caption@tempdima=\dimen168
+\captionmargin=\dimen169
+\caption@leftmargin=\dimen170
+\caption@rightmargin=\dimen171
+\caption@width=\dimen172
+\caption@indent=\dimen173
+\caption@parindent=\dimen174
+\caption@hangindent=\dimen175
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count292
+\c@continuedfloat=\count293
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+ (/home/mridul/.TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: rotating package is loaded.
+Package caption Info: wrapfig package is loaded.
+)
+\c@subfigure=\count294
+\c@subtable=\count295
 ) (/home/mridul/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count292
+\l__color_backend_stack_int=\count296
 \l__pdf_internal_box=\box62
 ) (./steepest_descent.aux)
 \openout1 = `steepest_descent.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
  (/home/mridul/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -348,7 +376,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 28.
+Package hyperref Info: Link coloring OFF on input line 29.
 (/home/mridul/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/home/mridul/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
@@ -356,77 +384,119 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/home/mridul/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count293
+\c@section@level=\count297
 )
-LaTeX Info: Redefining \ref on input line 28.
-LaTeX Info: Redefining \pageref on input line 28.
-LaTeX Info: Redefining \nameref on input line 28.
+LaTeX Info: Redefining \ref on input line 29.
+LaTeX Info: Redefining \pageref on input line 29.
+LaTeX Info: Redefining \nameref on input line 29.
  (./steepest_descent.out) (./steepest_descent.out)
 \@outlinefile=\write3
 \openout3 = `steepest_descent.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 118.
+ (/home/mridul/.TinyTeX/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 126.
  (/home/mridul/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 126.
  (/home/mridul/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
-
-{/home/mridul/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 117.
- (/home/mridul/.TinyTeX/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [2]
-<./contour_plot_1.png, id=65, 462.528pt x 346.896pt>
+)
+<./contour_plot_1.png, id=17, 462.528pt x 346.896pt>
 File: ./contour_plot_1.png Graphic file (type png)
 <use ./contour_plot_1.png>
-Package pdftex.def Info: ./contour_plot_1.png  used on input line 145.
+Package pdftex.def Info: ./contour_plot_1.png  used on input line 146.
 (pdftex.def)             Requested size: 452.9679pt x 339.74402pt.
- [3 <./contour_plot_1.png>]
-<./niter.png, id=79, 722.7pt x 722.7pt>
+<./niter.png, id=22, 722.7pt x 722.7pt>
 File: ./niter.png Graphic file (type png)
 <use ./niter.png>
-Package pdftex.def Info: ./niter.png  used on input line 161.
+Package pdftex.def Info: ./niter.png  used on input line 162.
 (pdftex.def)             Requested size: 452.9679pt x 452.96558pt.
-<./niter_fix_n_30.png, id=80, 722.7pt x 722.7pt>
+<./niter_fix_n_30.png, id=23, 722.7pt x 722.7pt>
 File: ./niter_fix_n_30.png Graphic file (type png)
 <use ./niter_fix_n_30.png>
-Package pdftex.def Info: ./niter_fix_n_30.png  used on input line 165.
+Package pdftex.def Info: ./niter_fix_n_30.png  used on input line 166.
 (pdftex.def)             Requested size: 452.9679pt x 452.96558pt.
-<./niter_fix_r.png, id=81, 722.7pt x 722.7pt>
+<./niter_fix_r.png, id=24, 722.7pt x 722.7pt>
 File: ./niter_fix_r.png Graphic file (type png)
 <use ./niter_fix_r.png>
-Package pdftex.def Info: ./niter_fix_r.png  used on input line 169.
+Package pdftex.def Info: ./niter_fix_r.png  used on input line 170.
 (pdftex.def)             Requested size: 452.9679pt x 452.96558pt.
-<./niter_fix_r_good.png, id=82, 722.7pt x 722.7pt>
+<./niter_fix_r_good.png, id=25, 722.7pt x 722.7pt>
 File: ./niter_fix_r_good.png Graphic file (type png)
 <use ./niter_fix_r_good.png>
-Package pdftex.def Info: ./niter_fix_r_good.png  used on input line 174.
+Package pdftex.def Info: ./niter_fix_r_good.png  used on input line 175.
 (pdftex.def)             Requested size: 452.9679pt x 452.96558pt.
-<./function_value.png, id=84, 722.7pt x 722.7pt>
+<./function_value.png, id=27, 722.7pt x 722.7pt>
 File: ./function_value.png Graphic file (type png)
 <use ./function_value.png>
-Package pdftex.def Info: ./function_value.png  used on input line 184.
+Package pdftex.def Info: ./function_value.png  used on input line 185.
 (pdftex.def)             Requested size: 452.9679pt x 452.96558pt.
- [4 <./niter.png>] [5 <./niter_fix_n_30.png>] [6 <./niter_fix_r.png>] [7 <./niter_fix_r_good.png>] [8 <./function_value.png>] (./steepest_descent.aux)
+
+Overfull \hbox (101.55246pt too wide) in paragraph at lines 198--198
+[]\T1/cmtt/m/n/10.95 $ python3 general_sd.py -list -function <function-name> -n <dim> -eps 1e-3 -seed 0 -alpha_hat 1e-3[] 
+ []
+
+[1
+
+{/home/mridul/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <./contour_plot_1.png>] [3 <./niter.png>] [4 <./niter_fix_n_30.png>] [5 <./niter_fix_r.png>] [6 <./niter_fix_r_good.png>] [7 <./function_value.png>]
+<./SD_on_beale.png, id=88, 722.7pt x 505.89pt>
+File: ./SD_on_beale.png Graphic file (type png)
+<use ./SD_on_beale.png>
+Package pdftex.def Info: ./SD_on_beale.png  used on input line 214.
+(pdftex.def)             Requested size: 226.48395pt x 158.53795pt.
+<./SD_on_bukin_n6.png, id=89, 722.7pt x 505.89pt>
+File: ./SD_on_bukin_n6.png Graphic file (type png)
+<use ./SD_on_bukin_n6.png>
+Package pdftex.def Info: ./SD_on_bukin_n6.png  used on input line 215.
+(pdftex.def)             Requested size: 226.48395pt x 158.53795pt.
+<./SD_on_drop_wave.png, id=90, 722.7pt x 505.89pt>
+File: ./SD_on_drop_wave.png Graphic file (type png)
+<use ./SD_on_drop_wave.png>
+Package pdftex.def Info: ./SD_on_drop_wave.png  used on input line 220.
+(pdftex.def)             Requested size: 226.48395pt x 158.53795pt.
+<./drop_wave_2.png, id=91, 463.9734pt x 226.2051pt>
+File: ./drop_wave_2.png Graphic file (type png)
+<use ./drop_wave_2.png>
+Package pdftex.def Info: ./drop_wave_2.png  used on input line 221.
+(pdftex.def)             Requested size: 226.48395pt x 110.42036pt.
+<./drop_wave_3.png, id=92, 463.9734pt x 226.2051pt>
+File: ./drop_wave_3.png Graphic file (type png)
+<use ./drop_wave_3.png>
+Package pdftex.def Info: ./drop_wave_3.png  used on input line 222.
+(pdftex.def)             Requested size: 452.9679pt x 220.84073pt.
+<./SD_on_booth_function.png, id=93, 722.7pt x 505.89pt>
+File: ./SD_on_booth_function.png Graphic file (type png)
+<use ./SD_on_booth_function.png>
+Package pdftex.def Info: ./SD_on_booth_function.png  used on input line 226.
+(pdftex.def)             Requested size: 226.48395pt x 158.53795pt.
+<./SD_on_sphere.png, id=94, 722.7pt x 505.89pt>
+File: ./SD_on_sphere.png Graphic file (type png)
+<use ./SD_on_sphere.png>
+Package pdftex.def Info: ./SD_on_sphere.png  used on input line 227.
+(pdftex.def)             Requested size: 226.48395pt x 158.53795pt.
+ [8 <./SD_on_beale.png> <./SD_on_bukin_n6.png>] [9 <./SD_on_drop_wave.png> <./drop_wave_2.png> <./drop_wave_3.png> <./SD_on_booth_function.png> <./SD_on_sphere.png>] (./steepest_descent.aux)
 Package rerunfilecheck Info: File `steepest_descent.out' has not changed.
-(rerunfilecheck)             Checksum: F4093F11FFC521F90F62D8C6201B1560;546.
+(rerunfilecheck)             Checksum: 59B0867A11511F2798D5E4321F178F57;609.
  ) 
 Here is how much of TeX's memory you used:
- 10348 strings out of 480247
- 160778 string characters out of 5895711
- 456847 words of memory out of 5000000
- 28090 multiletter control sequences out of 15000+600000
- 477669 words of font info for 53 fonts, out of 8000000 for 9000
+ 11842 strings out of 480247
+ 190635 string characters out of 5895711
+ 482021 words of memory out of 5000000
+ 29573 multiletter control sequences out of 15000+600000
+ 483230 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,11n,63p,281b,407s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/home/mridul/.TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/home/mridul/.TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on steepest_descent.pdf (8 pages, 636293 bytes).
+ 67i,8n,77p,334b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/home/mridul/.TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/home/mridul/.TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on steepest_descent.pdf (9 pages, 837100 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
- 137 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 63 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 189 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
+ 90 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -3,6 +3,7 @@ import argparse
 import autograd.numpy as np
 from autograd import grad
 import functions
+import matplotlib.pyplot as plt
 
 
 def norm(v):
@@ -14,6 +15,7 @@ def steepest_descent(f, *, n, eps, alpha_hat, seed=None):
         seed = np.random.randint(1, 1000)
     rs = np.random.RandomState(seed=seed)
     x = rs.randn(n).reshape(-1, 1)
+    fs = [f(x)]
     print("starting x:\n{}\n".format(x))
     gradf = grad(f) # f needs to be a pure function
     g = gradf(x)
@@ -26,45 +28,67 @@ def steepest_descent(f, *, n, eps, alpha_hat, seed=None):
         niter += 1
         g = gradf(x)
         x = x - alpha_hat * g
-    return x, niter
+        fs.append(f(x))
+    return x, niter, fs
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-function","-f",type=str,required=True)
-    parser.add_argument("-n",type=int,required=True)
-    parser.add_argument("-eps",type=float,default=1e-3)
-    parser.add_argument("-seed",type=int,default=None)
-    parser.add_argument("-alpha_hat",type=float,default=1e-3)
+    group = parser.add_argument_group("Arguments")
+    group.add_argument("-list",default=False,action='store_true')
+    group.add_argument("-function","-f",type=str)
+    group.add_argument("-n",type=int)
+    group.add_argument("-eps",type=float,default=1e-3)
+    group.add_argument("-seed",type=int,default=None)
+    group.add_argument("-alpha_hat",type=float,default=1e-3)
+    group.add_argument("-save_graph",default=False,action='store_true')
     args = parser.parse_args()
+    if args.list:
+        print("------ Known functions: -------")
+        print("\n".join(k for k in dir(functions) if not k.startswith('__') and k != 'np'))
+        sys.exit()
+    elif args.function is None or args.n is None:
+        parser.print_usage()
+        print("{}: error: the following arguments are required: -function/-f, -n"\
+                .format(sys.argv[0]))
+        sys.exit(1)
     n = args.n
     eps = args.eps
     seed = args.seed
     alpha_hat = args.alpha_hat
-    function = args.function
+    function_name = args.function
     print("Got args: n = {}, eps = {}, seed = {}, alpha_hat = {}, function = {}".format(
         n,
         eps,
         seed,
         alpha_hat,
-        function))
+        function_name))
     # define how to get function here
-    if function in dir(functions):
-        func = getattr(functions, function)
+    if function_name in dir(functions):
+        func = getattr(functions, function_name)
     else:
-        print("-------Unknown function: ------")
-        print(function)
-        print("-------Known functions: -------")
+        print("------ Unknown function: ------")
+        print(function_name)
+        print("------ Known functions: -------")
         print("\n".join(k for k in dir(functions) if not k.startswith('__') and k != 'np'))
         sys.exit(1)
     function = func(n)
-    x, niter = steepest_descent(
+    x, niter, fs = steepest_descent(
             function,
             n=n,
             eps=eps,
             seed=seed,
             alpha_hat=alpha_hat)
     print(x, niter)
+    if args.save_graph:
+        figure = plt.figure(figsize=(10,7))
+    plt.plot(range(1, niter + 2),fs,label='Function value')
+    plt.xlabel('iteration number')
+    plt.ylabel('function value')
+    plt.title('Plot for {} function'.format(function_name))
+    if args.save_graph:
+        plt.savefig('SD_on_{}.png'.format(function_name))
+    plt.show()
 
 
 if __name__=="__main__":
