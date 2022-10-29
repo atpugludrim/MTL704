@@ -1,0 +1,1 @@
+Assignment 2: 20 marks, Conjugate gradient method for general function with a restart policy. Its performance on convex functions and specifically quadratic functions of large dimension where u can generate Q matrix randomly (symmetric and pd) of size n where n can be set large. Last date November 8, 2022. Uploading on moodle only

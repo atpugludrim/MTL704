@@ -1,0 +1,109 @@
+% Created 2022-10-29 Sat 09:55
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\title{}
+\hypersetup{
+ pdfauthor={Mridul Gupta},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.3)}, 
+ pdflang={English}}
+\begin{document}
+
+\noindent \textbf{Definition - Conjugate Directions}. Let $Q$ be an $n\times n$
+matrix and $Q\succ 0$. Any two non-zero vectors (directions) $d^{(1)}$, $d^{(2)}$
+$\in\mathbb{R}^n$ are said to be \textit{conjugate vectors} or \textit{conjugate
+directions} with respect to $Q$, if $(d^{(1)})^TQd^{(2)}=0$.
+\vskip0.5cm\noindent If $Q=I$, conjugacy reduces to orthogonality. More than two vectors
+are $Q$-conjugate if they are all mutually $Q$-conjugate.
+\vskip0.5cm\noindent \textbf{Result}. Let $\{d^{(0)},d^{(1)},\dotsc,d^{(k)}\}$ be a set
+of $k+1$ non-zero vectors which are conjugate with respect to a given positive
+definite matrix $Q$. Then the vectors $d^{(0)},d^{(1)},\dotsc,d^{(k)}$ are linearly
+independent.
+\vskip0.5cm\noindent \textbf{Proof}. To prove, we have to show that
+$\alpha_0d^{(0)}+\alpha_1d^{(1)}+\cdots+\alpha_kd^{(k)}=0$ implies that each
+$\alpha_j=0$.
+Consider:
+\[\alpha_0d^{(0)}+\alpha_1d^{(1)}+\cdots+\alpha_kd^{(k)}=0\]
+and pre-multiply both sides by $(d^{(j)})^TQ$. Then by conjugacy, it reduces to
+\[\alpha_j((d^{(j)})^TQd^{(j)})=0\]
+But, since $Q\succ 0$, $(d^{(j)})^TQd^{(j)}>0$. Thus, $\alpha_j=0$. We can do this
+for any $j$, and thus prove all $\alpha_j$'s are 0.
+\par\hfill$\Box$
+\vskip0.5cm For the problem $\min\frac{1}{2}x^TQx-b^Tx$ where $Q\succ 0$ and
+$Q^T=Q$, note that at $x^*$, $Qx^*=b$ by setting gradient to 0. And $x^*=Q^{-1}b$.
+We can solve this system of linear equations to find $x^*$, but we wanna do it without
+explicitly finding $Q^{-1}$ so that it can be applied to general function where
+a $Q$ might not exist. We gone prove that given $n$ non-zero $Q$-conjugate vectors
+we can find $x^*$ without having to compute $Q^{-1}$.
+\vskip0.5cm \noindent \textbf{Result}. Let $d^{(0)},d^{(1)},\dotsc,d^{(n-1)}$ be
+a set of $n$ non-zero vectors in $\mathbb{R}^n$ which are conjugate with respect
+to $Q$. Then $x^*$, which is the unique solution to the system $Qx=b$ is given by
+\[x^*=\sum_{k=0}^{n-1}\left(\dfrac{(d^{(k)})^Tb} {(d^{(k)})Qd^{(k)}} \right)d^{(k)}\]
+%
+\vskip0.5cm\noindent\textbf{Proof}. $d^{(0)},d^{(1)},\dotsc,d^{(n-1)}$ are
+$n$ linearly independent vectors in $\mathbb{R}^n$. \break Or, equivalently, they form
+a basis for $\mathbb{R}^n$. Therefore, there exist scalars $\alpha_0,\alpha_1,
+\dotsc\alpha_{n-1}$ such that:
+\[x^*=\alpha_0d^{(0)}+\alpha_1d^{(1)}+\cdots+\alpha_{n-1}d^{(n-1)}\]
+Now, pre-multiply with $(d^{(k)})^TQ$ and use conjugacy to determine $\alpha_k$:
+\[\alpha_k=\dfrac{(d^{(k)})^TQx^*}{(d^{(k)})^TQd^{(k)}}\]
+but since $x^*$ is solution of equation $Qx=b$, $Qx^*=b$.
+\par\hfill$\Box$
+%
+\vskip0.5cm \noindent We will now rethink this as an iterative process:
+\\\textbf{Conjugate Direction Theorem}. Let $\{d^{(0)},d^{(1)},\dotsc,d^{(n-1)}\}$
+be a set of $n$ non-zero vectors in $\mathbb{R}^n$ which are conjugate with respect
+to $Q$. For any $x^0\in\mathbb{R}^n$, the sequence $\{x^k\}$ generated according to
+\begin{align*}
+    x^{k+1}&=x^k+\alpha_kd^{(k)},\\
+    \alpha_k&=-\dfrac{(g^k)^Td^{(k)}}{(d^{(k)})^TQd^{(k)}},\\
+    g^k&=Qx^k-b,
+\end{align*}
+converges to the unique solution $x^*$ of the system $Qx=b$ exactly after $n$ steps,
+i.e. $x^n=x^*$.
+%
+\vskip0.5cm\noindent\textbf{Proof}. Since $d^{(0)},d^{(1)},\dotsc,d^{(n-1)}$ form
+a basis of $mathbb{R}^n$, there exist scalars \(\lambda_0,\lambda_1,\dotsc, \lambda_{n-1}\)
+such that:
+\[x^*-x^0=\lambda_0d^{(0)}+\lambda_1d^{(1)}+\dotsc+\lambda_{n-1}d^{(n-1)}\]
+Again, pre-multiplying with $(d^{(k)})^TQ$, we get
+\[\lambda_k=\dfrac{(d^{(k)})^TQ(x^*-x^0)}{(d^{(k)})^TQd^{(k)}}\]
+And, by following the iterative scheme:
+\begin{align*}
+    x^1-x^0&=\alpha_0d^{(0)}\\
+    x^2-x^0&=x^1+\alpha_1d^{(1)}-x^0=\alpha_0d^{(0)}+alpha_1d^{(1)}\\
+    \vdots\quad&\\
+    x^k-x^0&=\alpha_0d^{(0)}+\alpha_1d^{(1)}+\dotsc+\alpha_{k-1}d^{(k-1)}\\
+\end{align*}
+Pre-multiplying by $(d^{(k)})^TQ$:
+\begin{equation}(d^{(k)})^TQ(x^k-x^0)=0\label{eq:1}\end{equation}
+Now,
+\[\lambda_k=\dfrac{(d^{(k)})^TQ(x^*-x^k+x^k-x^0)}{(d^{(k)})^TQd^{(k)}}\]
+but by~\ref{eq:1}:
+\begin{align*}
+    \lambda_k&=\dfrac{(d^{(k)})^TQ(x^*-x^k)}{(d^{(k)})^TQd^{(k)}}\\
+    &=\dfrac{(d^{(k)})^T(Qx^*-Qx^k)}{(d^{(k)})^TQd^{(k)}}\\
+    &=\dfrac{(d^{(k)})^T(b-Qx^k)}{(d^{(k)})^TQd^{(k)}}\\
+    &=\dfrac{(d^{(k)})^T(-g^k)}{(d^{(k)})^TQd^{(k)}}\\
+    &=\alpha_k\\
+\end{align*}
+Also, $x^n-x^0=\alpha_0d^{(0)}+\alpha_1d^{(1)}+\dotsc+\alpha_{n-1}d^{(n-1)}$. But
+$\alpha_k=\lambda_k\Rightarrow x^n-x^0=\lambda_0d^{(0)}+\lambda_1d^{(1)}+\dotsc+\lambda_{n-1}d^{(n-1)}
+= x^*-x^0$. Thus, $x^n=x^*$.
+\par\hfill$\Box$
+\end{document}
