@@ -10,12 +10,13 @@ def norm(v):
     return np.sqrt(np.sum(np.square(v)))
 
 
-def estimate_alpha_k(f, x_k, alpha_hat, gradient_xk):
-    x_k_hat = x_k - alpha_hat * gradient_xk
+def estimate_alpha_k(f, x_k, alpha_hat, gradient_xk, d_k):
+    x_k_hat = x_k + alpha_hat * d_k
     f_k_hat = f(x_k_hat)
-    norm_g_sq = np.square(norm(gradient_xk))
-    alpha_k = norm_g_sq * alpha_hat * alpha_hat
-    alpha_k /= 2 * (f_k_hat - f(x_k) + alpha_hat * norm_g_sq)
+    norm_d_sq = np.matmul(d_k.T, d_k)
+    norm_g_sq = np.matmul(d_k.T, gradient_xk).reshape(-1)
+    alpha_k = norm_d_sq * alpha_hat * alpha_hat
+    alpha_k /= 2 * (f_k_hat - f(x_k) - alpha_hat * norm_g_sq)
     return alpha_k
 
 
@@ -37,7 +38,7 @@ def conjugate_gradient(f, *, n, eps, alpha_hat, seed=None):
             break
         niter += 1
         g = gradf(x)
-        alpha_hat = estimate_alpha_k(f, x, alpha_hat, g)
+        alpha_hat = estimate_alpha_k(f, x, alpha_hat, g, d)
         x = x + alpha_hat * d
         g_plus_1 = gradf(x)
         beta = MM(g_plus_1.T,g_plus_1)/MM(g.T,g)

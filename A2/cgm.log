@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.1.24)  29 OCT 2022 14:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.1.24)  2 NOV 2022 19:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -343,23 +343,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
-[4] (./cgm.aux)
+
+Overfull \hbox (11.39874pt too wide) detected at line 158
+[]
+ []
+
+[4] [5] (./cgm.aux)
 Package rerunfilecheck Info: File `cgm.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 9752 strings out of 480247
- 150990 string characters out of 5895711
+ 9753 strings out of 480247
+ 150996 string characters out of 5895711
  435834 words of memory out of 5000000
  27545 multiletter control sequences out of 15000+600000
  478138 words of font info for 53 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,10n,63p,220b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,10n,63p,220b,398s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/mridul/.TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/home/mridul/.TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></home/mridul/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on cgm.pdf (4 pages, 168461 bytes).
+Output written on cgm.pdf (5 pages, 172114 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 500000)
+ 105 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
+ 9 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

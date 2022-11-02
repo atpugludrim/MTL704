@@ -138,5 +138,28 @@ by induction for the rest of $i$.
 \section*{General unconstrained problem}
 $\alpha_k$ is obtained from minimization of $\phi(\alpha)=f(x^k+\alpha d^{(k)})$.
 And after every $n-1$ iterations, the process is restarted (Powell's correction).
-The direction is reset to the steepest descent direction.
+The direction is reset to the steepest descent direction.\par
+%
+How is $\alpha_k$ obtained? Here's the sketch:
+\begin{itemize}
+    \item We know that $\alpha=\dfrac{(d^{(k)})^Td^{(k)}}{(d^{(k)})^TQd^{(k)}}$.
+    \item Begin with an estimate $\hat{\alpha}_k$.
+    \item Determine $\hat{f}\equiv f(x^k+\hat{\alpha}_kd^{(k)})$.
+    \item Now, approximate $f(x)$ around $x=x^k$ with Taylor's series and
+        evaluate at $x^k+\hat{\alpha}_kd^{(k)}$:
+        \begin{align*}
+            f(x)&=f(x^k)+(\nabla f(x^k))^T(x-x^k)+\frac{1}{2}(x-x^k)^T%
+            \nabla^2f(x^k)(x-x^k)\\
+            f(x^k+\hat{\alpha}_k)&=f(x^k)+(\nabla f(x^k))^T(\hat{\alpha}_kd^{(k)})%
+            +\frac{1}{2}(\hat{\alpha}_kd^{(k)})^T\nabla^2f(x^k)(\hat{\alpha}_kd^{(k)})\\
+            %
+            \hat{f}&\approx f(x^k)+\hat{\alpha}_k(d^{(k)})^T\nabla f(x^k)+%
+            \frac{1}{2}\hat{\alpha}_k(d^{(k)})^T\nabla^2f(x^k)d^{(k)}\\
+        \end{align*}
+    \item From the actual value of $\hat{f}$ and approximated value of $\hat{f}$
+        we can produce an estimate for the denominator in calculation of $\alpha$:
+        \[(d^{(k)})^T\nabla^2f(x^k)d^{(k)} = 2\dfrac{\hat{f}-f(x^k) -\hat{\alpha}_k(d^{(k)})^T\nabla f(x^k)}%
+        {\hat{\alpha}_k^2}\]
+    \item Use this to find $\alpha$.
+\end{itemize}
 \end{document}

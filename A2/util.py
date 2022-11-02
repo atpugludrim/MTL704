@@ -6,6 +6,7 @@ def generate_sym_pd_matrix(n, rs):
     R = rs.randint(-1000, 1000, (n, n))
     q, _ = np.linalg.qr(R, mode='complete')
     eigs = rs.permutation(1000)[:n] + 1
+    eigs[0] = 100000
     A = np.matmul(np.matmul(q, np.diag(eigs)), q.T)
     return A
 

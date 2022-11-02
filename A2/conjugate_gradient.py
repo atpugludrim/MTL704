@@ -25,12 +25,10 @@ def steepest_descent(Q, b, n, eps, *, seed=None):
     while norm(g) >= eps:
         niter += 1
         g = grad(Q, b, x)
-        alpha = MM(g.T, g)/MM(d.T, MM(Q, d))
-        # alpha = MM(MM(MM(x.T, Q), Q), x) - 2 * MM(MM(x.T, Q), b) + MM(b.T, b)
-        # alpha /= MM(MM(MM(g.T, Q), Q), x) - MM(MM(g.T, Q), b)
+        alpha = -MM(g.T, d)/MM(d.T, MM(Q, d))
         x = x + alpha * d
         g_1 = grad(Q, b, x)
-        beta = MM(g_1.T, g_1)/MM(g.T, g)
+        beta = MM(g_1.T, MM(Q, d))/MM(d.T, MM(Q, d))
         d = -g_1 + beta * d
         if niter == n:
             break
